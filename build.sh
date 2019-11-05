@@ -6,7 +6,7 @@ shift
 SRCDIR="$(pwd -P)"
 echo "++ Source Directory: ${TMPDIR}"
 
-mkdir workdir
+mkdir workdir 2>/dev/null
 
 set -eo pipefail
 
@@ -21,7 +21,7 @@ if [[ ! -d "${TMPDIR}/.git" ]]; then
     git clone --branch "${TAG}" "https://github.com/elastic/curator.git" "${TMPDIR}"
 else
     echo "++ Resetting and checking out repository tag"
-    ( cd "${TMPDIR}"; git reset --hard HEAD; git checkout "${TAG}" )
+    ( cd "${TMPDIR}"; git reset --hard HEAD; git fetch; git checkout "${TAG}" )
 fi
 
 echo "++ Checking for overrides"
@@ -32,6 +32,4 @@ fi
 
 echo "++ Building koshatul/curator:${TAG}"
 docker build -t koshatul/curator:${TAG} .
-# cd 
-# echo "++ Removing build directory"
-# rm -rf "${TMPDIR}"
+
