@@ -11,7 +11,7 @@ for TAG in $(echo "${CURATOR_TAGS}" | jq -r '.[].tag_name' | tac); do
         echo "++ Building version ${TAG}"
         set -e
         ./build.sh "${TAG}"
-        # ./push.sh "${TAG}"
+        ./push.sh "${TAG}"
         set +e
     fi
 done
