@@ -12,5 +12,10 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v1
+    - name: Docker registry login
+      run: ./login.sh
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
     - name: Make missing versions
       run: ./build-all.sh

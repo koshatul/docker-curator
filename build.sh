@@ -7,6 +7,9 @@ SRCDIR="$(pwd -P)"
 echo "++ Source Directory: ${TMPDIR}"
 
 mkdir workdir
+
+set -eo pipefail
+
 TMPDIR="$(cd workdir; pwd -P)"
 # TMPDIR="$(mktemp -d)"
 echo "++ Temporary Directory: ${TMPDIR}"

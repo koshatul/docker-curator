@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -x
+set -eo pipefail
 
 DOCKER_TAGS="$(curl -sSL 'https://hub.docker.com/v2/repositories/koshatul/curator/tags')"
 CURATOR_TAGS="$(curl -sSL 'https://api.github.com/repos/elastic/curator/releases')"
