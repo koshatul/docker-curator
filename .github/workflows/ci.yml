@@ -13,12 +13,4 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v1
     - name: Make missing versions
-      run: |
-        DOCKER_TAGS="$(curl -sSL 'https://hub.docker.com/v2/repositories/koshatul/curator/tags')"
-        for TAG in $(curl -sSL 'https://api.github.com/repos/elastic/curator/releases' | jq -r '.[].tag_name'); do
-          echo ${DOCKER_TAGS} | jq -r '.results[].name' | grep -q "${TAG}"
-          if [[ ${?} != 0 ]]; then 
-            ./build.sh "${TAG}"
-            ./push "${TAG}"
-          fi
-        done
+      run: ./build-all.sh
