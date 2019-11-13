@@ -4,7 +4,7 @@ TAG="${1}"
 shift
 
 SRCDIR="$(pwd -P)"
-echo "++ Source Directory: ${TMPDIR}"
+echo "++ Source Directory: ${SRCDIR}"
 
 mkdir workdir 2>/dev/null
 
