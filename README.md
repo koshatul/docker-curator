@@ -1,4 +1,5 @@
 # docker-curator
+
 [![Github Action Status](https://github.com/koshatul/docker-curator/workflows/CI/badge.svg)](https://github.com/koshatul/docker-curator/actions?query=workflow%3ACI)
 
 Automated Docker builds of elasticsearch [curator](https://github.com/elastic/curator/)
